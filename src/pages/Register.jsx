@@ -57,6 +57,12 @@ const Register = ({ onSwitchLogin }) => {
             setLoading(false);
         }
     };
+
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter" && !loading) {
+            handleRegister();
+        }
+    };
     return (
         <div className="auth-container">
 
@@ -65,24 +71,28 @@ const Register = ({ onSwitchLogin }) => {
             <input
                 placeholder="Nom"
                 onChange={(e) => setName(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
 
             <input
                 placeholder="Email"
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
 
             <input
                 type="password"
                 placeholder="Mot de passe"
                 onChange={(e) => setPassword(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
 
             <input
                 type="password"
                 placeholder="Confirmation"
                 onChange={(e) => setConfirm(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
 
             <button onClick={handleRegister} disabled={loading}>

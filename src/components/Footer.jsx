@@ -25,18 +25,17 @@ const Footer = () => {
                     <div className="footer-column">
                         <h4>Navigation</h4>
                         <ul>
-                            <li><a href="#">Accueil</a></li>
-                            <li><a href="#">Salles</a></li>
-                            <li><a href="#">Réserver</a></li>
+                            <li><a href="/">Accueil</a></li>
+                            <li><a href="/salles">Salles</a></li>
+                            <li><a href="/calendrier">Calendrier</a></li>
                         </ul>
                     </div>
 
                     <div className="footer-column">
                         <h4>Entreprise</h4>
                         <ul>
-                            <li><a href="#">À propos</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Conditions</a></li>
+                            <li><a href="/team">Notre Équipe</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </div>
 

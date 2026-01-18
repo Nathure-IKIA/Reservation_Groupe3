@@ -1,8 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Reserver from "./Reserver";
 import "./Hero.css";
 
 const Hero = () => {
+    const navigate = useNavigate();
+
+    const handleSeeRooms = () => {
+        navigate("/salles");
+    };
+
+    const handleReserveNow = () => {
+        const reserveSection = document.querySelector(".reserve");
+        if (reserveSection) {
+            reserveSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <section className="hero">
             <div className="hero-overlay"></div>
@@ -16,8 +30,12 @@ const Hero = () => {
                 </p>
 
                 <div className="hero-buttons">
-                    <button className="btn-primary">Voir les salles</button>
-                    <button className="btn-secondary">Réserver maintenant</button>
+                    <button className="btn-primary" onClick={handleSeeRooms}>
+                        Voir les salles
+                    </button>
+                    <button className="btn-secondary" onClick={handleReserveNow}>
+                        Réserver maintenant
+                    </button>
                 </div>
             </div>
 

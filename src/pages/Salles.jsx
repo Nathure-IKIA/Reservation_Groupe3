@@ -167,7 +167,7 @@ const Salles = () => {
                     {filtered.map((salle, index) => {
                         // Chercher l'image correspondante dans le JSON par le nom
                         const salleImage = ImageSalles.find(img => img.nom === salle.nom);
-                        const fileName = salleImage ? salleImage.image.split('/').pop() : 'salle-default.jpg';
+                        const fileName = salleImage ? salleImage.image.split('/').pop() : 'salle-default.png';
                         const localImage = `/images/${fileName}`;
 
                         return (

@@ -53,6 +53,12 @@ const Login = ({ onSuccess }) => {
         }
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter" && !loading) {
+            handleLogin();
+        }
+    };
+
     return (
         <div className="auth-container">
 
@@ -63,6 +69,7 @@ const Login = ({ onSuccess }) => {
                 type="email"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
 
             {/* Champ mot de passe */}
@@ -70,6 +77,7 @@ const Login = ({ onSuccess }) => {
                 type="password"
                 placeholder="Mot de passe"
                 onChange={(e) => setPassword(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
 
             {/* Bouton connexion */}

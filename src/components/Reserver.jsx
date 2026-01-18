@@ -10,23 +10,39 @@ const Reserver = () => {
     const [fin, setFin] = useState("");
     const [raison, setRaison] = useState("");
     const [existingReservations, setExistingReservations] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        apiFetch("/salles")
-            .then((res) => res.json())
-            .then((data) => setSalles(Array.isArray(data) ? data : []))
-            .catch(() => setSalles([]));
+        const fetchSalles = async () => {
+            try {
+                const res = await apiFetch("/salles");
+                if (!res.ok) throw new Error("Erreur lors de la récupération des salles");
+                const data = await res.json();
+                setSalles(Array.isArray(data) ? data : []);
+            } catch (error) {
+                console.error("Erreur salles:", error);
+                toast.error("Connectez vous pour voir toutes les salles!");
+                setSalles([]);
+            }
+        };
+        fetchSalles();
     }, []);
 
     useEffect(() => {
         if (!salleId) return;
 
-        apiFetch(`/reservations/calendrier?salle_id=${salleId}`)
-            .then((res) => res.json())
-            .then((data) =>
-                setExistingReservations(Array.isArray(data) ? data : [])
-            )
-            .catch(() => setExistingReservations([]));
+        const fetchReservations = async () => {
+            try {
+                const res = await apiFetch(`/reservations/calendrier?salle_id=${salleId}`);
+                if (!res.ok) throw new Error("Erreur lors de la récupération des réservations");
+                const data = await res.json();
+                setExistingReservations(Array.isArray(data) ? data : []);
+            } catch (error) {
+                console.error("Erreur réservations:", error);
+                setExistingReservations([]);
+            }
+        };
+        fetchReservations();
     }, [salleId]);
 
     const hasConflict = () => {
@@ -43,6 +59,12 @@ const Reserver = () => {
     };
 
     const handleReservation = async () => {
+        const token = sessionStorage.getItem("token");
+        if (!token) {
+            toast.error("Veuillez vous connecter pour réserver");
+            return;
+        }
+
         if (!salleId || !debut || !fin) {
             toast.error("Veuillez remplir tous les champs obligatoires");
             return;
@@ -58,25 +80,43 @@ const Reserver = () => {
             return;
         }
 
-        const res = await apiFetch("/reservations", {
-            method: "POST",
-            body: JSON.stringify({
-                salle_id: salleId,
-                date_debut: debut.replace("T", " ") + ":00",
-                date_fin: fin.replace("T", " ") + ":00",
-                raison,
-            }),
-        });
+        setLoading(true);
+        try {
+            const currentSalleId = salleId;
+            const res = await apiFetch("/reservations", {
+                method: "POST",
+                body: JSON.stringify({
+                    salle_id: currentSalleId,
+                    date_debut: debut.replace("T", " ") + ":00",
+                    date_fin: fin.replace("T", " ") + ":00",
+                    raison: raison || null,
+                }),
+            });
 
-        const data = await res.json();
+            const data = await res.json();
 
-        if (res.ok) {
-            toast.success("Réservation créée avec succès");
-            setDebut("");
-            setFin("");
-            setRaison("");
-        } else {
-            toast.error(data.message || "Erreur réservation");
+            if (res.ok) {
+                toast.success("Réservation créée avec succès ✓");
+                setDebut("");
+                setFin("");
+                setRaison("");
+                
+                // Rafraîchir les réservations avec l'ID sauvegardé
+                const refreshRes = await apiFetch(`/reservations/calendrier?salle_id=${currentSalleId}`);
+                if (refreshRes.ok) {
+                    const refreshData = await refreshRes.json();
+                    setExistingReservations(Array.isArray(refreshData) ? refreshData : []);
+                }
+                
+                setSalleId("");
+            } else {
+                toast.error(data.message || "Erreur lors de la réservation");
+            }
+        } catch (error) {
+            console.error("Erreur réservation:", error);
+            toast.error("Erreur réseau");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -85,14 +125,20 @@ const Reserver = () => {
         !debut ||
         !fin ||
         new Date(fin) <= new Date(debut) ||
-        hasConflict();
+        hasConflict() ||
+        loading ||
+        !sessionStorage.getItem("token");
 
     return (
         <div className="reserver-box">
             <h3>Créer une réservation</h3>
 
             <div className="input-reserver">
-                <select value={salleId} onChange={(e) => setSalleId(e.target.value)}>
+                <select 
+                    value={salleId} 
+                    onChange={(e) => setSalleId(e.target.value)}
+                    disabled={loading}
+                >
                     <option value="">-- Choisir une salle --</option>
                     {salles.map((s) => (
                         <option key={s.id} value={s.id}>
@@ -105,12 +151,16 @@ const Reserver = () => {
                     type="datetime-local"
                     value={debut}
                     onChange={(e) => setDebut(e.target.value)}
+                    disabled={loading}
+                    min={new Date().toISOString().slice(0, 16)}
                 />
 
                 <input
                     type="datetime-local"
                     value={fin}
                     onChange={(e) => setFin(e.target.value)}
+                    disabled={loading}
+                    min={debut || new Date().toISOString().slice(0, 16)}
                 />
 
                 <input
@@ -118,15 +168,22 @@ const Reserver = () => {
                     placeholder="Raison (optionnel)"
                     value={raison}
                     onChange={(e) => setRaison(e.target.value)}
+                    disabled={loading}
                 />
             </div>
 
             {hasConflict() && (
-                <p className="conflict">Salle déjà réservée sur ce créneau</p>
+                <p className="conflict">⚠️ Salle déjà réservée sur ce créneau</p>
+            )}
+            {!sessionStorage.getItem("token") && (
+                <p className="conflict">Connectez-vous pour réserver</p>
             )}
             <div className="btn-reservation">
-                <button onClick={handleReservation} disabled={isDisabled}>
-                    Réserver
+                <button 
+                    onClick={handleReservation} 
+                    disabled={isDisabled}
+                >
+                    {loading ? "Réservation en cours..." : "Réserver"}
                 </button>
             </div>
         </div>

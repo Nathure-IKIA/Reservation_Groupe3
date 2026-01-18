@@ -105,12 +105,12 @@ const Contact = () => {
                         <div className="info-card">
                             <div className="info-icon">📍</div>
                             <h3>Adresse</h3>
-                            <p>Kinshasa, Congo</p>
+                            <p>Congo</p>
                         </div>
                         <div className="info-card">
                             <div className="info-icon">📞</div>
                             <h3>Téléphone</h3>
-                            <p>+243 123 456 789</p>
+                            <p>+242 06 000 00 00</p>
                         </div>
                         <div className="info-card">
                             <div className="info-icon">✉️</div>

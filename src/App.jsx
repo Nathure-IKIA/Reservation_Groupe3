@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import ReservationHistory from "./pages/ReservationHistory";
 import Contact from "./pages/Contact";
 import Team from "./pages/Team";
+import Calendar from "./pages/Calendar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/Footer";
 import AuthModal from "./components/AuthModal";
@@ -22,6 +23,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/salles" element={<ProtectedRoute element={<Salles />} />} />
+                <Route path="/calendrier" element={<ProtectedRoute element={<Calendar />} />} />
                 <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
                 <Route path="/mes-reservations" element={<ProtectedRoute element={<ReservationHistory />} />} />
                 <Route path="/contact" element={<Contact />} />
@@ -36,7 +38,7 @@ const App = () => {
             <Footer />
             {/* Configuration globale des notifications */}
             <Toaster
-                position="top-right"
+                position="top-center"
                 toastOptions={{
                     style: {
                         borderRadius: "8px",

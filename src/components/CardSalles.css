@@ -200,15 +200,46 @@
     transform: scale(0.98);
 }
 
-/* MOBILE */
+/* TABLET */
+@media (max-width: 1024px) {
+    .card-salles {
+        margin: 100px auto;
+        padding: 50px 30px;
+    }
+
+    .card-salles h2 {
+        font-size: 36px;
+    }
+
+    .card-list {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        height: 340px;
+    }
+}
+
+/* MOBILE - MEDIUM */
 @media (max-width: 768px) {
     .card-salles {
         margin: 80px auto;
         padding: 40px 20px;
+        border-radius: 15px;
+    }
+
+    .card-header {
+        margin-bottom: 40px;
     }
 
     .card-salles h2 {
         font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .card-subtitle {
+        font-size: 14px;
     }
 
     .card-list {
@@ -217,35 +248,134 @@
     }
 
     .card {
-        height: 280px;
+        height: auto;
         flex-direction: column;
     }
 
     .card-image {
         width: 100%;
-        height: 140px;
+        height: 180px;
     }
 
     .card-content {
         width: 100%;
         padding: 20px;
+        justify-content: flex-start;
     }
 
     .card-content h3 {
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     .card-info {
-        margin-bottom: 10px;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 12px;
+    }
+
+    .info-label {
+        font-size: 10px;
+    }
+
+    .info-value {
+        font-size: 13px;
     }
 
     .description {
         font-size: 12px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .equipements-label {
+        font-size: 11px;
+    }
+
+    .equipements p {
+        font-size: 11px;
     }
 
     .btn-reserver {
-        padding: 10px 16px;
+        padding: 11px 18px;
         font-size: 12px;
+        margin-top: 12px;
+    }
+}
+
+/* MOBILE - SMALL */
+@media (max-width: 480px) {
+    .card-salles {
+        margin: 60px auto;
+        padding: 30px 15px;
+    }
+
+    .card-header {
+        margin-bottom: 30px;
+    }
+
+    .card-salles h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+        font-size: 13px;
+    }
+
+    .card-list {
+        gap: 15px;
+    }
+
+    .card {
+        border-radius: 12px;
+    }
+
+    .card-image {
+        height: 150px;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .card-content h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .card-info {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .info-label {
+        font-size: 9px;
+    }
+
+    .info-value {
+        font-size: 12px;
+    }
+
+    .description {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+
+    .equipements-label {
+        font-size: 10px;
+    }
+
+    .equipements p {
+        font-size: 10px;
+    }
+
+    .btn-reserver {
+        padding: 10px 15px;
+        font-size: 11px;
+    }
+
+    .capacity-badge {
+        padding: 5px 10px;
+        font-size: 11px;
     }
 }

@@ -82,7 +82,7 @@ const Team = () => {
         },
         {
             id: 11,
-            name: "Walker",
+            name: "MANPOUKA BANZOUZI Walker",
             role: "Développeur",
             description: "Performance et optimisation du code",
             icon: "👨‍💻"
@@ -129,7 +129,7 @@ const Team = () => {
                     <div className="project-info">
                         <div className="info-card">
                             <h3>🎯 Objectif</h3>
-                            <p>Créer une plateforme de réservation de salles pour les événements professionnels en République Démocratique du Congo.</p>
+                            <p>Créer une plateforme de réservation de salles pour les événements professionnels en République du Congo.</p>
                         </div>
                         <div className="info-card">
                             <h3>✨ Fonctionnalités</h3>
