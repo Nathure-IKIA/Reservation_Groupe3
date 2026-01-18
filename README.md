@@ -37,7 +37,7 @@
 
 ✅ **Authentification JWT** avec sessionStorage éphémère  
 ✅ **Système de réservation** complet et fiable  
-✅ **Dashboard administrateur** avec statistiques  
+✅ **Dashboard administrateur** avec statistiques, design moderne, bouton refresh stylé, et affichage du nombre d'utilisateurs  
 ✅ **Page Contact** avec FAQ interactive  
 ✅ **Design responsive** - Mobile, Tablette, Desktop  
 ✅ **Thème moderne** avec gradient violet/magenta  
@@ -67,10 +67,37 @@
 - Confirmations par email (via API)
 
 ### 📊 Dashboard Administrateur
-- **Vue d'ensemble** : Statistiques clés (salles, réservations, revenus)
+- **Vue d'ensemble** : Statistiques clés (salles, réservations, revenus, utilisateurs)
+- **Design** : Interface moderne, bouton "Recharger" stylé en CSS
 - **Gestion des salles** : CRUD complet avec modal d'édition
-- **Gestion des réservations** : Affichage et suppression
+- **Gestion des réservations** : Affichage, suppression, rechargement rapide
 - **Export de données** : Statistiques et rapports
+---
+
+## 🚀 Mettre à jour sur GitHub
+
+Après modification du code, pour publier sur GitHub :
+
+1. Ouvre un terminal dans le dossier du projet
+2. Ajoute les fichiers modifiés :
+      ```bash
+      git add src/pages/Dashboard.jsx src/pages/Dashboard.css
+      ```
+3. Fais un commit :
+      ```bash
+      git commit -m "Amélioration du dashboard : design, bouton refresh, stats utilisateurs"
+      ```
+4. Envoie sur GitHub :
+      ```bash
+      git push
+      ```
+
+Si tu n’as pas encore configuré le remote :
+      ```bash
+      git remote add origin https://github.com/TON_UTILISATEUR/NOM_DU_REPO.git
+      git push -u origin main
+      ```
+Remplace `TON_UTILISATEUR` et `NOM_DU_REPO` par tes infos.
 
 ### 💬 Contact & Support
 - Formulaire de contact avec validation
@@ -176,9 +203,10 @@ http://localhost:5173
 | 👨‍💻 | BAYETH Mébora | Tests API |
 | 👨‍💻 | MBOUNGOU Altesse Fortune | Sécurité |
 | 👩‍💻 | MBENGO Carla | Responsive Design |
-| 👨‍💻 | MANTEKA John Walker | Réservations |
+| 👨‍💻 | MANTEKA John  | Réservations |
 | 👨‍💻 | KIAYENIKA Timothée | Dashboard Admin |
 | 👨‍💻 | NGATSONO Vianey Rick | Performance |
+| 👨‍💻 | MANPOUKA BANZOUZI Walker | Performance |
 
 ---
 

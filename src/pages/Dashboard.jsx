@@ -2,6 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { apiFetch } from '../api/api';
+
+// Fonction pour supprimer une réservation via l'API admin
+async function deleteReservation(id) {
+    const response = await apiFetch(`/admin/reservations/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    if (!response.ok) {
+        throw new Error('Erreur lors de la suppression');
+    }
+    return response.json();
+}
 import { isAdmin, getUser } from '../utils/auth';
 import './Dashboard.css';
 
@@ -35,15 +49,17 @@ const Dashboard = () => {
         setLoading(true);
         try {
             // Récupérer les salles
-            const sallesRes = await apiFetch("/salles");
+            const sallesRes = await apiFetch("/admin/salles");
             const sallesData = await sallesRes.json();
-            setSalles(Array.isArray(sallesData) ? sallesData : []);
+            console.log("Salles récupérées:", sallesData);
+            setSalles(Array.isArray(sallesData) ? sallesData : (sallesData.data || []));
 
-            // Récupérer les réservations
-            const reservationsRes = await apiFetch("/reservations");
+            // Récupérer les réservations via l'API calendrier
+            const reservationsRes = await apiFetch("/reservations/calendrier");
             const reservationsData = await reservationsRes.json();
-            setReservations(Array.isArray(reservationsData) ? reservationsData : []);
+            setReservations(Array.isArray(reservationsData) ? reservationsData : (reservationsData.data || []));
         } catch (error) {
+            console.error("Erreur chargement:", error);
             toast.error("Erreur lors du chargement des données");
         } finally {
             setLoading(false);
@@ -53,14 +69,16 @@ const Dashboard = () => {
     const handleDeleteSalle = async (id) => {
         if (window.confirm("Êtes-vous sûr de vouloir supprimer cette salle ?")) {
             try {
-                const res = await apiFetch(`/salles/${id}`, { method: "DELETE" });
+                const res = await apiFetch(`/admin/salles/${id}`, { method: "DELETE" });
                 if (res.ok) {
-                    toast.success("Salle supprimée");
+                    toast.success("Salle supprimée ✅");
                     fetchData();
                 } else {
-                    toast.error("Erreur lors de la suppression");
+                    const data = await res.json();
+                    toast.error(data.message || "Erreur lors de la suppression");
                 }
             } catch (error) {
+                console.error("Erreur suppression:", error);
                 toast.error("Erreur réseau");
             }
         }
@@ -69,15 +87,11 @@ const Dashboard = () => {
     const handleDeleteReservation = async (id) => {
         if (window.confirm("Êtes-vous sûr de vouloir supprimer cette réservation ?")) {
             try {
-                const res = await apiFetch(`/reservations/${id}`, { method: "DELETE" });
-                if (res.ok) {
-                    toast.success("Réservation supprimée");
-                    fetchData();
-                } else {
-                    toast.error("Erreur lors de la suppression");
-                }
+                await deleteReservation(id);
+                toast.success("Réservation supprimée ✅");
+                fetchData();
             } catch (error) {
-                toast.error("Erreur réseau");
+                toast.error(error.message || "Erreur lors de la suppression");
             }
         }
     };
@@ -103,7 +117,7 @@ const Dashboard = () => {
         const toastId = toast.loading("Modification en cours...");
 
         try {
-            const res = await apiFetch(`/salles/${editingSalle.id}`, {
+            const res = await apiFetch(`/admin/salles/${editingSalle.id}`, {
                 method: "PUT",
                 body: JSON.stringify({
                     nom: editingSalle.nom,
@@ -121,10 +135,12 @@ const Dashboard = () => {
                 setShowEditSalleModal(false);
                 fetchData();
             } else {
-                toast.error("Erreur lors de la modification");
+                const data = await res.json();
+                toast.error(data.message || "Erreur lors de la modification");
             }
         } catch (error) {
             toast.dismiss(toastId);
+            console.error("Erreur modification:", error);
             toast.error("Erreur réseau");
         } finally {
             setSavingNewSalle(false);
@@ -141,7 +157,7 @@ const Dashboard = () => {
         const toastId = toast.loading("Création de la salle...");
 
         try {
-            const res = await apiFetch("/salles", {
+            const res = await apiFetch("/admin/salles", {
                 method: "POST",
                 body: JSON.stringify({
                     nom: newSalle.nom,
@@ -164,8 +180,8 @@ const Dashboard = () => {
             }
         } catch (error) {
             toast.dismiss(toastId);
+            console.error("Erreur création:", error);
             toast.error("Erreur réseau");
-            console.error(error);
         } finally {
             setSavingNewSalle(false);
         }
@@ -298,7 +314,17 @@ const Dashboard = () => {
                 {/* RESERVATIONS */}
                 {activeTab === 'reservations' && (
                     <section className="dashboard-section">
-                        <h2>Gestion des Réservations</h2>
+                        <div className="section-header" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'1rem'}}>
+                            <h2 style={{margin:0}}>Gestion des Réservations</h2>
+                            <button 
+                                className="btn-refresh"
+                                onClick={fetchData}
+                                title="Recharger la liste"
+                            >
+                                <span style={{fontSize:'1.2em'}}>🔄</span>
+                                <span>Recharger</span>
+                            </button>
+                        </div>
                         <div className="table-wrapper">
                             <table className="dashboard-table">
                                 <thead>
@@ -307,26 +333,34 @@ const Dashboard = () => {
                                         <th>Date Début</th>
                                         <th>Date Fin</th>
                                         <th>Raison</th>
+                                        <th>Utilisateur</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {reservations.map((reservation) => (
-                                        <tr key={reservation.id}>
-                                            <td>{reservation.salle?.nom || "N/A"}</td>
-                                            <td>{new Date(reservation.date_debut).toLocaleString('fr-FR')}</td>
-                                            <td>{new Date(reservation.date_fin).toLocaleString('fr-FR')}</td>
-                                            <td className="description-cell">{reservation.raison || "—"}</td>
-                                            <td>
-                                                <button 
-                                                    className="btn-delete"
-                                                    onClick={() => handleDeleteReservation(reservation.id)}
-                                                >
-                                                    🗑️ Supprimer
-                                                </button>
-                                            </td>
+                                    {reservations.length === 0 ? (
+                                        <tr>
+                                            <td colSpan={6} style={{textAlign:'center', color:'#888'}}>Aucune réservation trouvée.</td>
                                         </tr>
-                                    ))}
+                                    ) : (
+                                        reservations.map((reservation) => (
+                                            <tr key={reservation.id}>
+                                                <td>{reservation.salle?.nom || reservation.salle_nom || "N/A"}</td>
+                                                <td>{reservation.date_debut ? new Date(reservation.date_debut).toLocaleString('fr-FR') : "—"}</td>
+                                                <td>{reservation.date_fin ? new Date(reservation.date_fin).toLocaleString('fr-FR') : "—"}</td>
+                                                <td className="description-cell">{reservation.raison || reservation.motif || "—"}</td>
+                                                <td>{reservation.user?.email || reservation.user_email || reservation.utilisateur || "—"}</td>
+                                                <td>
+                                                    <button 
+                                                        className="btn-delete"
+                                                        onClick={() => handleDeleteReservation(reservation.id)}
+                                                    >
+                                                        🗑️ Supprimer
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
                                 </tbody>
                             </table>
                         </div>
