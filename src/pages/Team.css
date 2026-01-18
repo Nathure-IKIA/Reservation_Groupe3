@@ -1,0 +1,323 @@
+.team-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    padding-top: 80px;
+    color: #ffffff;
+}
+
+.team-header {
+    background: linear-gradient(135deg, #ab1585 0%, #7a0f5f 100%);
+    padding: 80px 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(171, 21, 133, 0.2);
+    animation: slideInDown 0.6s ease-out;
+}
+
+.team-header h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+}
+
+.team-header p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-weight: 300;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.team-section {
+    margin-bottom: 80px;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-section h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 0 40px 0;
+    background: linear-gradient(135deg, #ab1585, #7a0f5f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+/* TEAM GRID */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.team-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(171, 21, 133, 0.3);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.team-card:hover {
+    border-color: #ab1585;
+    box-shadow: 0 10px 30px rgba(171, 21, 133, 0.2);
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(171, 21, 133, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.team-card .card-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.team-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: #ffffff;
+}
+
+.team-card .role {
+    color: #ab1585;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-card .description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* PROJECT INFO */
+.project-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(171, 21, 133, 0.3);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: #ab1585;
+    box-shadow: 0 10px 30px rgba(171, 21, 133, 0.2);
+}
+
+.info-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+}
+
+.info-card p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin: 0;
+    font-size: 14px;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card li {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(171, 21, 133, 0.1);
+}
+
+.info-card li:last-child {
+    border-bottom: none;
+}
+
+.info-card li:before {
+    content: "✓ ";
+    color: #ab1585;
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+/* TECHNOLOGIES */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.tech-card {
+    background: linear-gradient(135deg, rgba(171, 21, 133, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(171, 21, 133, 0.3);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.tech-card:hover {
+    border-color: #ab1585;
+    box-shadow: 0 8px 20px rgba(171, 21, 133, 0.3);
+    transform: translateY(-3px);
+}
+
+.tech-icon {
+    font-size: 36px;
+    display: block;
+}
+
+.tech-name {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* STATS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #ab1585 0%, #7a0f5f 100%);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(171, 21, 133, 0.2);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(171, 21, 133, 0.4);
+}
+
+.stat-number {
+    font-size: 42px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .team-header {
+        padding: 50px 30px;
+    }
+
+    .team-header h1 {
+        font-size: 32px;
+    }
+
+    .team-header p {
+        font-size: 16px;
+    }
+
+    .team-content {
+        padding: 40px 20px;
+    }
+
+    .team-section h2 {
+        font-size: 28px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-info {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-header {
+        padding: 40px 20px;
+    }
+
+    .team-header h1 {
+        font-size: 24px;
+    }
+
+    .team-header p {
+        font-size: 14px;
+    }
+
+    .team-card .card-icon {
+        font-size: 48px;
+    }
+
+    .team-section h2 {
+        font-size: 22px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

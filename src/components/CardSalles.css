@@ -1,0 +1,251 @@
+.card-salles {
+    max-width: 1300px;
+    margin: 120px auto;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.card-salles h2 {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 900;
+    margin: 0 0 15px 0;
+}
+
+.card-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* GRID */
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+}
+
+/* CARD */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    height: 360px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 40px rgba(171, 21, 133, 0.2);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* IMAGE */
+.card-image {
+    position: relative;
+    width: 40%;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.capacity-badge {
+    background: rgba(171, 21, 133, 0.95);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* CONTENT */
+.card-content {
+    width: 60%;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fafafa;
+}
+
+.card-content h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #000000;
+    margin: 0 0 16px 0;
+}
+
+.card-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ab1585;
+}
+
+.description {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.equipements {
+    margin-bottom: 16px;
+}
+
+.equipements-label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.equipements p {
+    font-size: 12px;
+    color: #666;
+    margin: 6px 0 0 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* BUTTON */
+.btn-reserver {
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ab1585 0%, #8f0f6f 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-reserver:hover {
+    background: linear-gradient(135deg, #8f0f6f 0%, #650d50 100%);
+    transform: scale(1.04);
+    box-shadow: 0 6px 20px rgba(171, 21, 133, 0.3);
+}
+
+.btn-reserver:active {
+    transform: scale(0.98);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .card-salles {
+        margin: 80px auto;
+        padding: 40px 20px;
+    }
+
+    .card-salles h2 {
+        font-size: 28px;
+    }
+
+    .card-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        height: 280px;
+        flex-direction: column;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 140px;
+    }
+
+    .card-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card-info {
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .btn-reserver {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}

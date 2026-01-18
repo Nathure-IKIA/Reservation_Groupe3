@@ -1,0 +1,54 @@
+.features {
+    max-width: 1100px;
+    margin: 120px auto;
+    padding: 40px;
+    background: #000000;
+    border-radius: 30px;
+    text-align: center;
+}
+
+/* TITRE */
+.features h3 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.logo-color {
+    color: #ab1585;
+}
+
+/* GRID */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* CARD TEXTE */
+.card-text {
+    background: #ffffff;
+    color: #000000;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* HOVER */
+.card-text:hover {
+    background: #ab1585;
+    color: #ffffff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features h3 {
+        font-size: 26px;
+    }
+}

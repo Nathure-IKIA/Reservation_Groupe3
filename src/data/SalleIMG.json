@@ -1,0 +1,145 @@
+[
+    {
+        "id": 1,
+        "nom": "Salle Meeting",
+        "image": "../public/image/salle-meeting.jpg",
+        "capacite": 700,
+        "equipements": "Projecteur, WiFi",
+        "description": "Grande salle de séminaire",
+        "created_at": "2025-12-11T10:42:00.000000Z",
+        "updated_at": "2026-01-14T14:13:33.000000Z",
+        "prix": "200000.00"
+    },
+    {
+        "id": 25,
+        "nom": "Salle Leadership",
+        "image": "../public/image/salle-leadership.jpg",
+        "capacite": 500,
+        "equipements": "Écran géant, Vidéoprojecteur ,Wi-Fi ,Micro ,Sono ,Parking ,Toilettes ,Climatisation",
+        "description": "salle de séminaire",
+        "created_at": "2026-01-13T22:15:59.000000Z",
+        "updated_at": "2026-01-14T14:41:39.000000Z",
+        "prix": "170000.00"
+    },
+    {
+        "id": 26,
+        "nom": "Salle Diamant",
+        "image": "../public/image/salle-diamant.jpg",
+        "capacite": 150,
+        "equipements": "Service traiteur, Climatisation, Lustre, Décoration de base, Micro, Écran géant, Piste de danse, projecteur, Micro, Parking, DJ Booth",
+        "description": "Salle de Mariage Lumineuse",
+        "created_at": "2026-01-14T14:23:54.000000Z",
+        "updated_at": "2026-01-14T14:23:54.000000Z",
+        "prix": "1000000.00"
+    },
+    {
+        "id": 27,
+        "nom": "Salle Fiesta",
+        "image": "../public/image/salle-fiesta.jpg",
+        "capacite": 250,
+        "equipements": "Écran géant, Wi-Fi ,Sono complète ,Parking , Boule Disco ,Climatisation, Décoration de base, Vidéoprojecteur, Projecteur lumineux, Piste de danse",
+        "description": "Grand salle de Mariage",
+        "created_at": "2026-01-14T14:28:47.000000Z",
+        "updated_at": "2026-01-14T14:28:47.000000Z",
+        "prix": "1000000.00"
+    },
+    {
+        "id": 28,
+        "nom": "Salle Golden",
+        "image": "../public/image/salle-golden.jpg",
+        "capacite": 100,
+        "equipements": "Piste de danse, DJ Booth, Salle climatisée , Boule Disco, Haut-parleurs",
+        "description": "Salle de Fête Luxueuse",
+        "created_at": "2026-01-14T14:33:49.000000Z",
+        "updated_at": "2026-01-14T14:33:49.000000Z",
+        "prix": "800.00"
+    },
+    {
+        "id": 29,
+        "nom": "Salle Baobab",
+        "image": "../public/image/salle-baobab.jpg",
+        "capacite": 150,
+        "equipements": "Piste de danse, DJ Booth, Haut-parleurs,ventilateur",
+        "description": "Salle de Fête",
+        "created_at": "2026-01-14T14:47:36.000000Z",
+        "updated_at": "2026-01-14T14:47:36.000000Z",
+        "prix": "55000.00"
+    },
+    {
+        "id": 30,
+        "nom": "Salle Nova",
+        "image": "../public/image/salle-nova.jpg",
+        "capacite": 30,
+        "equipements": "Microphones, Sono ,projecteur, wifi, Tableau blanc",
+        "description": "Salle de Réunion",
+        "created_at": "2026-01-14T14:49:04.000000Z",
+        "updated_at": "2026-01-14T14:49:04.000000Z",
+        "prix": "50000.00"
+    },
+    {
+        "id": 31,
+        "nom": "Salle Royale",
+        "image": "../public/image/salle-royale.jpg",
+        "capacite": 200,
+        "equipements": "Chandelles, Balkan, Climatisation, Lustre, Piste de danse, Micro, Parking, DJ Booth",
+        "description": "Salle de Mariage Luxueuse",
+        "created_at": "2026-01-14T14:50:42.000000Z",
+        "updated_at": "2026-01-14T14:50:42.000000Z",
+        "prix": "1800000.00"
+    },
+    {
+        "id": 32,
+        "nom": "Salle Executive",
+        "image": "../public/image/salle-executive.jpg",
+        "capacite": 20,
+        "equipements": "Projecteur, Wi-Fi, Climatisation, Micro",
+        "description": "Salle de Réunion",
+        "created_at": "2026-01-14T17:32:15.000000Z",
+        "updated_at": "2026-01-14T17:32:15.000000Z",
+        "prix": "40000.00"
+    },
+    {
+        "id": 33,
+        "nom": "Salle Business",
+        "image": "../public/image/salle-business.jpg",
+        "capacite": 80,
+        "equipements": "Vidéoprojecteur, Wi-Fi ,Tableau blanc ,Climatisation, Écran",
+        "description": "Salle de Réunion",
+        "created_at": "2026-01-14T17:33:36.000000Z",
+        "updated_at": "2026-01-14T17:33:36.000000Z",
+        "prix": "100000.00"
+    },
+    {
+        "id": 34,
+        "nom": "Salle Ambiance",
+        "image": "../public/image/salle-ambiance.jpg",
+        "capacite": 200,
+        "equipements": "Service traiteur,Bar,Piste de danse,DJ booth,Décoration de base,Éclairage décoratif,Climatisation",
+        "description": "Salle de Fête",
+        "created_at": "2026-01-15T13:33:54.000000Z",
+        "updated_at": "2026-01-15T13:33:54.000000Z",
+        "prix": "500000.00"
+    },
+    {
+        "id": 35,
+        "nom": "Salle Étoile",
+        "image": "../public/image/salle-etoile.jpg",
+        "capacite": 300,
+        "equipements": "Service traiteur,Bar,Piste de danse,DJ booth,Décoration de base,Éclairage décoratif,Climatisation, Parking",
+        "description": "Salle de Mariage",
+        "created_at": "2026-01-15T13:36:11.000000Z",
+        "updated_at": "2026-01-15T13:46:39.000000Z",
+        "prix": "2000000.00"
+    },
+    {
+        "id": 36,
+        "nom": "Salle Zenith",
+        "image": "../public/image/salle-zenith.jpg",
+        "capacite": 300,
+        "equipements": "Microphones, Sono ,projecteur, wifi, Tableau blanc, Climatisation, Parking",
+        "description": "Petite Salle de Séminaire",
+        "created_at": "2026-01-15T13:53:10.000000Z",
+        "updated_at": "2026-01-15T13:53:10.000000Z",
+        "prix": "150000.00"
+    }
+]
