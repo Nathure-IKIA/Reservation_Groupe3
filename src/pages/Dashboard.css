@@ -445,6 +445,11 @@
     flex-direction: column;
 }
 
+.color-descrip{
+    color: #000;
+}
+
+
 .form-group label {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
@@ -458,7 +463,7 @@
     border: 1px solid rgba(171, 21, 133, 0.3);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
+    color: #000 !important;
     font-size: 14px;
     font-family: inherit;
     transition: all 0.3s ease;
