@@ -208,17 +208,17 @@ http://localhost:5173
 | # | Nom | Rôle |
 |---|-----|------|
 | 👑 | Nathure IKIA | Chef de Groupe |
-| 👩‍💻 | DIBANKANISSA Princilia | Développeuse Frontend |
-| 👩‍💻 | KISSOLELE Jauvie Hilgia | Gestion des données |
-| 👨‍💻 | ZIKANDA MOUTSI Divin | Architecture |
-| 👩‍💻 | MBATCHI Lauriane Esperance | UI/Design |
-| 👨‍💻 | BAYETH Mébora | Tests API |
-| 👨‍💻 | MBOUNGOU Altesse Fortune | Sécurité |
-| 👩‍💻 | MBENGO Carla | Responsive Design |
-| 👨‍💻 | MANTEKA John  | Réservations |
-| 👨‍💻 | KIAYENIKA Timothée | Dashboard Admin |
-| 👨‍💻 | NGATSONO Vianey Rick | Performance |
-| 👨‍💻 | MANPOUKA BANZOUZI Walker | Performance |
+| 👩‍💻 | DIBANKANISSA Princilia | Développeuse CardSalle |
+| 👩‍💻 | KISSOLELE Jauvie Hilgia | Développeur ReservationHisto & api|
+| 👨‍💻 | ZIKANDA MOUTSI Divin | Développeur Hero & Auth |
+| 👩‍💻 | MBATCHI Lauriane Esperance | Développeuse Footer |
+| 👨‍💻 | BAYETH Mébora | Développeuse Salles |
+| 👨‍💻 | MBOUNGOU Altesse Fortune | Développeuse Contact & login |
+| 👩‍💻 | MBENGO Carla | Développeuse Feature |
+| 👨‍💻 | MANTEKA John  | Développeur Reserver & Register |
+| 👨‍💻 | KIAYENIKA Timothée | Développeur Navbar |
+| 👨‍💻 | NGATSONO Vianey Rick | Développeur Calendar |
+| 👨‍💻 | MANPOUKA BANZOUZI Walker | Développeur AuthModal & Team |
 
 ---
 
