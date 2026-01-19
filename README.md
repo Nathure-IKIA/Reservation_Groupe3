@@ -74,6 +74,18 @@
 - **Export de données** : Statistiques et rapports
 ---
 
+
+## 📱 Amélioration de la responsivité (janvier 2026)
+
+Les pages d'authentification (AuthFrom, Login, Register) ont été optimisées pour un affichage responsive :
+
+- Largeur du conteneur adaptée à tous les écrans (mobile, tablette, desktop)
+- Inputs et boutons redimensionnés pour le confort mobile
+- Media queries ajoutées pour une expérience fluide sur petits écrans
+
+> **Astuce** : Si tu constates un problème d'affichage sur mobile, vide le cache ou fais un hard refresh (Ctrl+F5)
+
+---
 ## 🚀 Mettre à jour sur GitHub
 
 Après modification du code, pour publier sur GitHub :
