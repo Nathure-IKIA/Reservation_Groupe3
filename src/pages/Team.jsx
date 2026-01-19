@@ -7,84 +7,84 @@ const Team = () => {
             id: 0,
             name: "Nathure IKIA",
             role: "Chef de Groupe",
-            description: "Leadership du projet, architecture générale et gestion de l'équipe",
+            description: "Je suis le chef de groupe. Je vais vous présenter la structure principale de l’application (App.jsx), la gestion des routes protégées (ProtectedRoute.jsx) ainsi que le tableau de bord de l’administrateur.",
             icon: "👑"
         },
         {
             id: 1,
             name: "DIBANKANISSA Princilia",
             role: "Développeuse",
-            description: "Développement Frontend et intégration API",
+            description: "Je vais vous présenter les cartes des salles, qui affichent les informations essentielles de chaque salle.",
             icon: "👩‍💻"
         },
         {
             id: 2,
             name: "KISSOLELE Jauvie Hilgia",
-            role: "Développeuse",
-            description: "Gestion des données et base de données",
-            icon: "👩‍💻"
+            role: "Développeur",
+            description: "Je vais vous présenter l’historique des réservations et l’intégration de l’API.",
+            icon: "👨‍💻"
         },
         {
             id: 3,
             name: "ZIKANDA MOUTSI Divin",
             role: "Développeur",
-            description: "Architecture et logique métier",
+            description: "Je vais vous présenter la section Hero ainsi que le système d’authentification en JavaScript.",
             icon: "👨‍💻"
         },
         {
             id: 4,
             name: "MBATCHI Lauriane Esperance",
             role: "Développeuse",
-            description: "Interface utilisateur et design système",
+            description: "Je vais vous présenter le pied de page, qui contient les informations générales et les liens utiles.",
             icon: "👩‍💻"
         },
         {
             id: 5,
             name: "BAYETH Mébora",
-            role: "Développeur",
-            description: "Intégration et tests API",
-            icon: "👨‍💻"
+            role: "Développeuse",
+            description: "Je vais vous présenter l’affichage des salles disponibles.",
+            icon: "👩‍💻"
         },
         {
             id: 6,
             name: "MBOUNGOU Altesse Fortune",
-            role: "Développeur",
-            description: "Authentification et sécurité",
-            icon: "👨‍💻"
+            role: "Développeuse",
+            description: "Je vais vous présenter la page Contact ainsi que la connexion des utilisateurs.",
+            icon: "👩‍💻"
         },
         {
             id: 7,
             name: "MBENGO Carla",
             role: "Développeuse",
-            description: "Responsive design et optimisation",
+            description: "Je vais vous présenter la section Feature qui met en avant les fonctionnalités clés de l’application.",
             icon: "👩‍💻"
         },
         {
             id: 8,
             name: "MANTEKA John",
             role: "Développeur",
-            description: "Gestion des réservations et logique métier",
+            description: "Je vais vous présenter le système de réservation et d’enregistrement.",
             icon: "👨‍💻"
         },
         {
             id: 9,
             name: "KIAYENIKA Timothée",
             role: "Développeur",
-            description: "Dashboard administrateur et reporting",
+            description: "Je vais vous présenter la barre de navigation et la gestion des liens.",
             icon: "👨‍💻"
         },
         {
             id: 10,
             name: "NGATSONO Vianey Rick",
             role: "Développeur",
-            description: "Performance et optimisation du code",
+            description: "Je vais vous présenter le calendrier des réservations.",
             icon: "👨‍💻"
         },
         {
             id: 11,
             name: "MANPOUKA BANZOUZI Walker",
             role: "Développeur",
-            description: "Performance et optimisation du code",
+            description: "Je vais vous présenter le module AuthModal ainsi que la gestion de l’équipe (Team)",
             icon: "👨‍💻"
         },
     ];

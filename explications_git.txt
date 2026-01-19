@@ -1,0 +1,38 @@
+Mise à jour complète du projet sur GitHub
+=========================================
+
+1. Ouvre un terminal dans le dossier de ton projet.
+2. Ajoute tous les fichiers modifiés :
+   git add .
+
+3. Fais un commit global :
+   git commit -m "Mise à jour complète du projet"
+
+4. Envoie la mise à jour sur GitHub :
+   git push origin main
+
+Explications :
+- Le point (.) dans git add signifie "tout ajouter".
+- Le commit enregistre les changements localement avec un message.
+- Le push synchronise tes modifications sur la branche principale du dépôt GitHub.
+
+Répète ces commandes à chaque fois que tu veux publier tes modifications sur GitHub.
+
+Mise à jour partielle (fichiers spécifiques)
+============================================
+
+1. Ouvre un terminal dans le dossier de ton projet.
+2. Ajoute uniquement les fichiers modifiés :
+   git add chemin/vers/fichier1 chemin/vers/fichier2
+
+3. Fais un commit :
+   git commit -m "Description des modifications"
+
+4. Envoie sur GitHub :
+   git push origin main
+
+Explications :
+- Remplace chemin/vers/fichier1 par le chemin réel du fichier modifié.
+- Tu peux ajouter autant de fichiers que tu veux dans la commande git add.
+- Utilise un message de commit clair pour décrire tes changements.
+- Le push synchronise uniquement les modifications ajoutées et commitées.
