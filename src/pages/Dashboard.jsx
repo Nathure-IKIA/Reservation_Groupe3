@@ -28,7 +28,7 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [showAddSalleModal, setShowAddSalleModal] = useState(false);
     const [showEditSalleModal, setShowEditSalleModal] = useState(false);
-    const [newSalle, setNewSalle] = useState({ nom: '', capacite: '', prix: '', description: '' });
+    const [newSalle, setNewSalle] = useState({ nom: '', capacite: '', prix: '', description: '', equipements: '' });
     const [editingSalle, setEditingSalle] = useState(null);
     const [savingNewSalle, setSavingNewSalle] = useState(false);
 
@@ -102,7 +102,8 @@ const Dashboard = () => {
             nom: salle.nom,
             capacite: salle.capacite,
             prix: salle.prix,
-            description: salle.description || ""
+            description: salle.description || "",
+            equipements: Array.isArray(salle.equipements) ? salle.equipements.join(', ') : (salle.equipements || "")
         });
         setShowEditSalleModal(true);
     };
@@ -124,6 +125,7 @@ const Dashboard = () => {
                     capacite: parseInt(editingSalle.capacite),
                     prix: parseFloat(editingSalle.prix),
                     description: editingSalle.description || "",
+                    equipements: editingSalle.equipements ? editingSalle.equipements.split(',').map(e => e.trim()).filter(e => e) : []
                 }),
             });
 
@@ -164,6 +166,7 @@ const Dashboard = () => {
                     capacite: parseInt(newSalle.capacite),
                     prix: parseFloat(newSalle.prix),
                     description: newSalle.description || "",
+                    equipements: newSalle.equipements ? newSalle.equipements.split(',').map(e => e.trim()).filter(e => e) : []
                 }),
             });
 
@@ -171,7 +174,7 @@ const Dashboard = () => {
 
             if (res.ok) {
                 toast.success("Salle créée avec succès ✅");
-                setNewSalle({ nom: '', capacite: '', prix: '', description: '' });
+                setNewSalle({ nom: '', capacite: '', prix: '', description: '', equipements: '' });
                 setShowAddSalleModal(false);
                 fetchData();
             } else {
@@ -417,9 +420,19 @@ const Dashboard = () => {
                                 <label>Description</label>
                                 <textarea 
                                     placeholder="Description de la salle..."
-                                    rows="4"
+                                    rows="6"
+                                    style={{resize:'vertical', minHeight:'80px'}}
                                     value={newSalle.description}
                                     onChange={(e) => setNewSalle({...newSalle, description: e.target.value})}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Équipements (séparés par des virgules)</label>
+                                <input
+                                    type="text"
+                                    placeholder="Ex: Projecteur, WiFi, Tableau blanc"
+                                    value={newSalle.equipements}
+                                    onChange={e => setNewSalle({...newSalle, equipements: e.target.value})}
                                 />
                             </div>
                         </div>
@@ -493,9 +506,19 @@ const Dashboard = () => {
                                 <label>Description</label>
                                 <textarea 
                                     placeholder="Description de la salle..."
-                                    rows="4"
+                                    rows="6"
+                                    style={{resize:'vertical', minHeight:'80px'}}
                                     value={editingSalle.description}
                                     onChange={(e) => setEditingSalle({...editingSalle, description: e.target.value})}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Équipements (séparés par des virgules)</label>
+                                <input
+                                    type="text"
+                                    placeholder="Ex: Projecteur, WiFi, Tableau blanc"
+                                    value={editingSalle.equipements}
+                                    onChange={e => setEditingSalle({...editingSalle, equipements: e.target.value})}
                                 />
                             </div>
                         </div>
